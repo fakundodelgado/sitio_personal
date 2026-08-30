@@ -1,4 +1,4 @@
-<?php include 'modulos/encabezado.php'; ?>
+<?php include 'vistas/modulos/encabezado.php'; ?> 
 
         <main>
             <h1>Sobre mí</h1>
@@ -21,5 +21,5 @@
             </section>
         </main>
 
-<?php include 'modulos/pie_de_pagina.php'; ?>
+<?php include 'vistas/modulos/pie_de_pagina.php'; ?>
         

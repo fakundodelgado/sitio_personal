@@ -13,8 +13,9 @@
                 <span class="autor">Delgado Facundo</span>
             </div> 
             <nav>
-            <a href="academico.php">Formación</a>
+            <!-- Aunque el encabezado esta en vista/modulos debo ubicar los links como si el mismo fuera parte del index... es decir desde la raiz -->
+            <a href="vistas/academico.php">Formación</a> 
             <a href="index.php">Presentación</a>
-            <a href="contacto.php">Contacto</a>
+            <a href="vistas/contacto.php">Contacto</a>
             </nav> 
         </header>
