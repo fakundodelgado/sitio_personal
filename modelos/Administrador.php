@@ -1,9 +1,9 @@
 <?php
 
 require_once __DIR__ . "/../configuracion/conexion.php";
-require_once __DIR__ . "/../modelos/Administrador.php";
+require_once __DIR__ . "/../modelos/EstadoMateria.php";
 
-class EstadoMateriaControlador {
+class Administrador {
 
     private $estadoMateriaModelo;
 
@@ -12,54 +12,35 @@ class EstadoMateriaControlador {
         $this->estadoMateriaModelo = new EstadoMateria($conexion);
     }
 
-    /*
-     private function requireLogin(): void
-    {
-        if (!isset($_SESSION['usuario_id'])) {
-            header('Location: ?action=login');
-            exit;
-        }
-    }
-        */
-
     // Me lleva al panel de "administración" (solo administradores)
     public function administrar(){
-
-        //$this->requireLogin();
-
         $estadoMateria=$this->estadoMateriaModelo->getAll(); 
         require __DIR__ . "/../vistas/estados_materias/administrar.php";
     }
 
     public function crear(){
-
-       // $this->requireLogin();
-
         require __DIR__ . "/../vistas/estados_materias/crear.php";
     }
 
     public function guardar(){
-
-        //$this->requireLogin();
-
         $codigoMateria=trim($_POST["codigo_materia"]??""); 
         $idEstado=(int)($_POST["id_estado"]??-1);
         $anio=(int)($_POST["anio"]??0); 
         $nota=(int)($_POST["nota"]??null);
-        
 
         if($nota === 0){
             $nota = null;
         }
 
-        if($codigoMateria===""||$idEstado<0||$idEstado>4||$anio===0){ 
+        if($codigoMateria===""||$idEstado<0||$idEstadp>4||$anio===0){ 
             die("El codigo de la materia, el id del estado y el año de la cursada son obligatorios.");
         }
 
-        if($nota != null && $idEstado!=4){
-            die("No se puede cargar una nota a una materia no aprobada");
+        if ($idEstado !== 4 && $nota !== null) {
+            die("No se puede cargar una nota a una materia que no está aprobada.");
         }
 
+        // 2. Si está aprobada pero dejaron la nota vacía
         if ($idEstado === 4 && $nota === null) {
             die("Una materia aprobada requiere obligatoriamente una nota.");
         }
@@ -70,11 +51,8 @@ class EstadoMateriaControlador {
     }
 
     public function editar(){
-
-        //$this->requireLogin();
-
         $codigoMateria=trim($_GET["codigo_materia"]??""); if($codigoMateria === "") die("Codigo de Materia inválido.");
-        $estadoMateria = $this->estadoMateriaModelo->getByCodigoMateria($codigoMateria); 
+        $estadoMateria=$this->estadoMateriaModelo->getByCodigoMateria($codigoMateria); 
 
         if(!$estadoMateria){
             die("Materia no encontrada.");
@@ -84,26 +62,24 @@ class EstadoMateriaControlador {
     }
 
     public function actualizar(){
-
-        //$this->requireLogin();
-
         $codigoMateria=trim($_POST["codigo_materia"]??""); 
-        $idEstado=(int)($_POST["id_estado"]??-1);
+        $idEstado=(int)($_POST["id_estado"]??0);
         $anio=(int)($_POST["anio"]??0); 
-        $nota=(int)($_POST["nota"]??null);
+        $nota=(int)($_POST["nota"]??0);
 
         if($nota === 0){
             $nota = null;
         }
 
-        if($codigoMateria===""||$idEstado<0||$idEstado>4||$anio===0){
+        if($codigoMateria===""||$idEstado<0||$idEstadp>4||$anio===0){ 
             die("El codigo de la materia, el id del estado y el año de la cursada son obligatorios.");
         }
 
-        if($nota != null && $idEstado!=4){
-            die("No se puede cargar una nota a una materia no aprobada");
+        if ($idEstado !== 4 && $nota !== null) {
+            die("No se puede cargar una nota a una materia que no está aprobada.");
         }
 
+        // 2. Si está aprobada pero dejaron la nota vacía
         if ($idEstado === 4 && $nota === null) {
             die("Una materia aprobada requiere obligatoriamente una nota.");
         }
@@ -114,9 +90,6 @@ class EstadoMateriaControlador {
     }
 
     public function eliminar(){
-
-       // $this->requireLogin();
-
         $codigoMateria=trim($_GET["codigo_materia"]??"");
 
         if($codigoMateria !== ""){

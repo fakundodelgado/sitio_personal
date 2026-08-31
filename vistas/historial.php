@@ -1,5 +1,5 @@
 
-<?php include __DIR__ . '/../plantillas/encabezado.php'; ?>
+<?php include __DIR__ . '/plantillas/encabezado.php'; ?>
 
 <main>
 
@@ -25,16 +25,16 @@
             </tr>
         </thead>
         <tbody>
-            <?php if(!empty($estadosMaterias)): // Materias sera un inner join con columnas (materia_nombre, ano_carrera, cuatrimestre, anio_cursada, estado_nombre, nota, visible)?> 
-               <?php while($estadoMateria=$estadosMaterias->fetch_assoc()): ?>
+            <?php if(!empty($estadoMateria)):?> 
+               <?php while($materia=$estadoMateria->fetch_assoc()): ?>
                     <tr>
 
-                        <td><?= htmlspecialchars($estadoMateria['materia_nombre']) ?></td>
-                        <td><?= htmlspecialchars($estadoMateria['ano_carrera']) ?></td>
-                        <td><?= htmlspecialchars($estadoMateria['cuatrimestre']) ?></td>
-                        <td><?= htmlspecialchars($estadoMateria['anio_cursada']) ?></td>
-                        <td><?= htmlspecialchars($estadoMateria['estado_nombre']) ?></td>
-                        <td><?= htmlspecialchars($estadoMateria['nota'] ?? '-') ?></td>
+                        <td><?= htmlspecialchars($materia['nombre_materia']) ?></td>
+                        <td><?= htmlspecialchars($materia['anio_carrera']) ?></td>
+                        <td><?= htmlspecialchars($materia['cuatrimestre_carrera']) ?></td>
+                        <td><?= htmlspecialchars($materia['anio']) ?></td>
+                        <td><?= htmlspecialchars($materia['nombre_estado']) ?></td>
+                        <td><?= htmlspecialchars($materia['nota'] ?? '-') ?></td>
 
                     </tr>
                 <?php endwhile; ?>
@@ -47,4 +47,4 @@
     </table>
 </main>
 
-<?php include __DIR__ . '/../plantillas/pie_de_pagina.php'; ?>
+<?php include __DIR__ . '/plantillas/pie_de_pagina.php'; ?>
