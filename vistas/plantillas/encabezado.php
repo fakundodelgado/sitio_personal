@@ -3,16 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <title>Mi sitio web</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="recursos/imagenes/favicon.png">
-        <link rel="stylesheet" href="recursos/css/principal.css">
+        <link rel="stylesheet" href="recursos/css/estilos.css">
+        <script src="recursos/js/script.js" defer></script> 
     </head>
     <body>
         <header>
+
             <div class="encabezado">
-                <span class="titulo-sitio">Mi sitio personal</span>
-                <span class="autor">Delgado Facundo</span>
+                <span id="titulo-sitio">Mi sitio personal</span>
+                <span id="autor">Delgado Facundo</span>
             </div> 
-            <nav>
+
+            <!-- Esto es para un intento de menú desplegable para las pantallas de celulars -->
+            <button id="btn-menu" class="btn-menu">☰ Menú</button>
+
+            <nav id="nav-menu" class="nav-menu">
             <!-- Aunque el encabezado esta en vista/modulos debo ubicar los links como si el mismo fuera parte del index... es decir desde la raiz -->
             <a href="index.php?action=historial">Formación</a> 
             <a href="index.php?action=inicio">Presentación</a>
@@ -26,5 +33,6 @@
                 <!-- sino -->
                 <a href="index.php?action=login">Iniciar Sesión</a>
             <?php endif; ?>
-            </nav> 
+            </nav>
+             
         </header>
