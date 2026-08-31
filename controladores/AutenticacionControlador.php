@@ -1,15 +1,16 @@
 <?php
 
 require_once __DIR__ . "/../configuracion/conexion.php";
+require_once __DIR__ . "/../modelos/Usuario.php";
 
 class AutenticacionControlador
 {
     
     private $administrador;
 
-    public function __construct()
-    {
-        $this->administrador = new Administrador($conexion);
+    public function __construct(){
+        global $conexion; 
+        $this->administrador = new Usuario($conexion);
     }
 
     public function mostrarLogin(): void
@@ -23,7 +24,7 @@ class AutenticacionControlador
     public function login(): void
     {
         $usuario = $_POST['usuario'] ?? '';
-        $contraseña = $_POST['contrasena'] ?? '';
+        $contrasena = $_POST['contrasena'] ?? '';
 
         $admin = $this->administrador->getByUsuario($usuario);
 
@@ -38,8 +39,6 @@ class AutenticacionControlador
 
         $_SESSION['usuario_id'] = $admin['id_usuario'];
         $_SESSION['usuario_nombre'] = $admin['usuario'];
-
-
 
         header('Location: ?action=administrar');
         exit;

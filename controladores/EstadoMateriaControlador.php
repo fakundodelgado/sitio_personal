@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . "/../configuracion/conexion.php";
-require_once __DIR__ . "/../modelos/Administrador.php";
+require_once __DIR__ . "/../modelos/EstadoMateria.php";
 
 class EstadoMateriaControlador {
 
@@ -12,7 +12,7 @@ class EstadoMateriaControlador {
         $this->estadoMateriaModelo = new EstadoMateria($conexion);
     }
 
-    /*
+    
      private function requireLogin(): void
     {
         if (!isset($_SESSION['usuario_id'])) {
@@ -20,12 +20,12 @@ class EstadoMateriaControlador {
             exit;
         }
     }
-        */
+        
 
     // Me lleva al panel de "administración" (solo administradores)
     public function administrar(){
 
-        //$this->requireLogin();
+        $this->requireLogin();
 
         $estadoMateria=$this->estadoMateriaModelo->getAll(); 
         require __DIR__ . "/../vistas/estados_materias/administrar.php";
@@ -33,14 +33,14 @@ class EstadoMateriaControlador {
 
     public function crear(){
 
-       // $this->requireLogin();
+       $this->requireLogin();
 
         require __DIR__ . "/../vistas/estados_materias/crear.php";
     }
 
     public function guardar(){
 
-        //$this->requireLogin();
+        $this->requireLogin();
 
         $codigoMateria=trim($_POST["codigo_materia"]??""); 
         $idEstado=(int)($_POST["id_estado"]??-1);
@@ -71,7 +71,7 @@ class EstadoMateriaControlador {
 
     public function editar(){
 
-        //$this->requireLogin();
+        $this->requireLogin();
 
         $codigoMateria=trim($_GET["codigo_materia"]??""); if($codigoMateria === "") die("Codigo de Materia inválido.");
         $estadoMateria = $this->estadoMateriaModelo->getByCodigoMateria($codigoMateria); 
@@ -85,7 +85,7 @@ class EstadoMateriaControlador {
 
     public function actualizar(){
 
-        //$this->requireLogin();
+        $this->requireLogin();
 
         $codigoMateria=trim($_POST["codigo_materia"]??""); 
         $idEstado=(int)($_POST["id_estado"]??-1);
@@ -115,7 +115,7 @@ class EstadoMateriaControlador {
 
     public function eliminar(){
 
-       // $this->requireLogin();
+       $this->requireLogin();
 
         $codigoMateria=trim($_GET["codigo_materia"]??"");
 

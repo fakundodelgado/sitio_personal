@@ -17,6 +17,14 @@
             <a href="index.php?action=historial">Formación</a> 
             <a href="index.php?action=inicio">Presentación</a>
             <a href="index.php?action=contacto">Contacto</a>
-            <a href="index.php?action=administrar">Administración</a>
+            <!-- Este if hace que al procesar php la solicitud ni siquiera mande el boton, no esta escondido, simplemente no existe -->
+            <?php if (isset($_SESSION['usuario_id'])): ?>
+                <!-- Si se inicio sesioon -->
+                <a href="index.php?action=administrar">Administración</a>
+                <a href="index.php?action=cerrar_sesion">Cerrar Sesión (<?= htmlspecialchars($_SESSION['usuario_nombre']) ?>)</a>
+            <?php else: ?>
+                <!-- sino -->
+                <a href="index.php?action=login">Iniciar Sesión</a>
+            <?php endif; ?>
             </nav> 
         </header>

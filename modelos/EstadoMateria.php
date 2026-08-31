@@ -1,5 +1,7 @@
 <?php
+
 class EstadoMateria {
+    
     private $conexion;
 
     public function __construct($conexion){
