@@ -4,7 +4,7 @@
                 <ul>
                     <li>Teléfono: 1162297804</li>
                     <li>Email: <a href="mailto:fakundo.delgado@gmail.com">fakundo.delgado@gmail.com</a></li>
-                    <li><a href="../contacto.php">Formulario de contacto</a></li>
+                    <li><a href="index.php?action=contacto">Formulario de contacto</a></li>
                 </ul>
             </div>
             <div class="relacionado">
