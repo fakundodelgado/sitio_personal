@@ -13,6 +13,7 @@
             </section>
             <section id="vocacion">
                 <h2>¿Por qué elegí la programación?</h2>
+                <img src="recursos/imagenes/programando.gif" alt="Programando">
                 <p> 
                     Mi interés por esta área surgió a través de un curso llamado "Mil programadores Salteños" dictado en 2021 por profesores de la universidad. 
                     Si bien anteriormente ya había tenido distintas experiencias con lo que es la programación, como por ejemplo programando en Pascal 

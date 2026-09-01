@@ -1,7 +1,7 @@
 
 <?php include __DIR__ . '/plantillas/encabezado.php'; ?>
 
-<main>
+<main class="academico">
 
     <h1>Estado Académico</h1>
 
@@ -18,7 +18,7 @@
             <tr>
                 <th>Materia</th>
                 <th>Año</th>
-                <th>Cuatrimestre</th>
+                <th>Cuatr.</th>
                 <th>Año de Cursada</th>
                 <th>Estado</th>
                 <th>Nota</th>
