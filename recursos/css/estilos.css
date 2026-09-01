@@ -242,6 +242,7 @@ main.academico h2 {
 
 /* FORMULARIO CONTACTO*/
 
+/*
 .main-contacto form {
     height: 100%;
     width: 100%;
@@ -251,6 +252,7 @@ main.academico h2 {
     font-size: 1rem;
     font-weight: bold;
 }
+
 
 .contenedor-contacto label {
     display: flex;
@@ -263,15 +265,17 @@ main.academico h2 {
     font-family: 'Segoe UI', system-ui, sans-serif;
     justify-content: center;
 }
+*/
 
 .botones {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 0;
+    width: 100%;
 }
 
+/*
 .botones button {
     font-size: 1.25rem;
     width: 100%;
@@ -282,6 +286,32 @@ main.academico h2 {
     font-size: 1.15rem;
     border: 1px solid black;
     background-color: rgb(245, 245, 238);
+    text-align: center;
+}
+*/
+
+.contenedor-contacto label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+    font-weight: bold;
+    font-size: 1.25rem;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    justify-content: center;
+}
+
+.area-texto {
+    width: 69%;
+}
+
+textarea {
+    width: 100%;
+}
+
+.contenedor-contacto input {
+    margin-bottom: 0.75rem;
+    border: 1px solid black;
+    font-size: 1.3rem;
     text-align: center;
 }
 
@@ -338,6 +368,79 @@ main.academico h2 {
     margin-top: 0.5rem;
     font-size: 1rem;
 }
+
+/* AGREGAR MATERIA */
+
+form {
+    width: 100%;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+fieldset {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+}
+
+button {
+    font-size: 1.25rem;
+    width: 100%;
+}
+
+legend {
+    margin-bottom: 1rem;
+}
+
+input, textarea{
+    border: 1px solid black;
+    font-size: 1.5rem;
+    background-color: rgb(245, 245, 238);
+    text-align: center;
+}
+
+.formulario-crear label {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* EDITAR MATERIA */
+
+ /*
+form {
+    width: 100%;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+*/
+
+/* todo depende de como haya acomodado los inputs y labels */
+/* si quedo uno despues de otro uso block */
+/* sino uso flex */
+
+.formulario-editar label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/*
+fieldset {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+}
+*/
+
+/* Termine haciendo el html de los formularios todos distintos.
+   Por eso tuve tantos problemas a la hora de definir el estilo de
+   los mismos. Solo deberia arreglar el de contacto para dejar todos 
+   iguales
+*/
+
+
 
 
 

@@ -20,7 +20,7 @@
                 Asunto: <input type="text" name="asunto" placeholder="Escriba el asunto...">
             </label>
 
-            <label>
+            <label class="area-texto">
                 Mensaje: <textarea name="mensaje" placeholder="Escriba su mensaje..."></textarea>
             </label>
             
