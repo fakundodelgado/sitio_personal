@@ -106,6 +106,8 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 main {
@@ -155,6 +157,12 @@ main img{
     border-radius: 8px;
     margin: 1rem 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+.contenedor-imagen {
+    text-align: center;
+    margin-bottom: 0.7rem;
 }
 
 main p a{
@@ -165,6 +173,7 @@ main p a{
 /* FOOTER */
 
 footer {
+    margin-top: auto;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
@@ -178,7 +187,6 @@ footer div {
     font-size: 1rem;
     line-height: 1.6;
     color: #444;
-    max-width: 600px;
     text-align: center;
 }
 
@@ -440,6 +448,128 @@ fieldset {
    iguales
 */
 
+/* PARTE RESPONSIVE */
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Por defecto en celulares (Mobile First) toma 100% */
+
+[class*="col-"] {
+    float: left;
+    padding: 10px;
+    width: 100%; 
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* TABLET */
+
+@media only screen and (min-width: 600px) {
+
+    .col-s-1 { width: 8.33%; }
+    .col-s-2 { width: 16.66%; }
+    .col-s-3 { width: 25%; }
+    .col-s-4 { width: 33.33%; }
+    .col-s-5 { width: 41.66%; }
+    .col-s-6 { width: 50%; }
+    .col-s-7 { width: 58.33%; }
+    .col-s-8 { width: 66.66%; }
+    .col-s-9 { width: 75%; }
+    .col-s-10 { width: 83.33%; }
+    .col-s-11 { width: 91.66%; }
+    .col-s-12 { width: 100%; }
+
+    /* La idea era tener 3 menús, uno para cada formato de pantalla, pero dado el diseño de mi página no termina siendo conveniente por eso tablet y mayores usan el mismo.*/
+
+    /*
+    .btn-menu {
+        display: none;
+    }
+
+    .nav-menu {
+        display: block !important;
+        margin-top: 1rem;
+    }
+
+    .nav-menu a{
+        display: block;
+        width: 100%;
+       
+    }
+    */
+
+    .btn-menu {
+        display: none;
+    }
+
+    .nav-menu {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .nav-menu a{
+        height: 100%;
+        border: 1px solid;
+        flex: 1;
+        border-bottom: 0px;
+    }
+
+    .nav-menu a:hover {
+    background-color: #e2dcca;
+    }
+
+    main.col-12 {
+        float: none !important;
+        max-width: 800px; 
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center;
+    }
+
+    /* Centra textos e imágenes */
+    main h1, main h2, main p {
+        text-align: center;
+    }
+
+    main p {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+}
+
+/* PARA PC */
+
+@media only screen and (min-width: 768px){
+
+    .col-1 { width: 8.33%; }
+    .col-2 { width: 16.66%; }
+    .col-3 { width: 25%; }
+    .col-4 { width: 33.33%; }
+    .col-5 { width: 41.66%; }
+    .col-6 { width: 50%; }
+    .col-7 { width: 58.33%; }
+    .col-8 { width: 66.66%; }
+    .col-9 { width: 75%; }
+    .col-10 { width: 83.33%; }
+    .col-11 { width: 91.66%; }
+    .col-12 { width: 100%; }
+
+}
 
 
 
