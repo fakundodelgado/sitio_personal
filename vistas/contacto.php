@@ -1,9 +1,10 @@
 <?php include __DIR__ . '/plantillas/encabezado.php'; ?>
 
 
-<main>
+<main class="main-contacto">
+    <h1> Formulario de contacto </h1>
     <form action="index.php?action=enviar_mensaje" method="POST">
-        <fieldset>
+        <fieldset class="contenedor-contacto">
 
             <legend> Envio de mail </legend>
 
@@ -23,9 +24,11 @@
                 Mensaje: <textarea name="mensaje" placeholder="Escriba su mensaje..."></textarea>
             </label>
             
+            <div class = "botones">
             <button type="submit">Enviar</button>
 
             <button type="reset">Borrar</button>
+            </div>
 
         </fieldset>
 

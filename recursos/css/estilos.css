@@ -240,6 +240,104 @@ main.academico h2 {
     margin-bottom: 1rem; 
 }
 
+/* FORMULARIO CONTACTO*/
+
+.main-contacto form {
+    height: 100%;
+    width: 100%;
+}
+
+.contenedor-contacto legend {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.contenedor-contacto label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    font-size: 1.25rem;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    justify-content: center;
+}
+
+.botones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+.botones button {
+    font-size: 1.25rem;
+    width: 100%;
+    align-self: flex-end;
+}
+
+.contenedor-contacto label textarea, label input{
+    font-size: 1.15rem;
+    border: 1px solid black;
+    background-color: rgb(245, 245, 238);
+    text-align: center;
+}
+
+/* INICIO DE SESIÓN */
+
+.formulario-login label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+    font-weight: bold;
+    font-size: 1.25rem;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    justify-content: center;
+}
+
+.formulario-login {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.formulario-login button {
+    display: block;
+    font-size: 1.25rem;
+    width: 100%;
+}
+
+.formulario-login input {
+    margin-bottom: 0.75rem;
+    border: 1px solid black;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.datos span {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+#top {
+    text-decoration: underline;
+}
+
+/* ADMINISTRACIÓN */
+
+#agregar-materia button {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+#botones-administrar button {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
 
 
 
