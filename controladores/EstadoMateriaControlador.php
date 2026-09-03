@@ -13,8 +13,7 @@ class EstadoMateriaControlador {
     }
 
     
-     private function requireLogin(): void
-    {
+     private function requireLogin(){
         if (!isset($_SESSION['usuario_id'])) {
             header('Location: ?action=login');
             exit;

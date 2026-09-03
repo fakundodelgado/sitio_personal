@@ -8,16 +8,21 @@
             <div class="error"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
 
-        <form method="POST" action="?action=procesar_login" class="formulario-login">
+        <form method="POST" action="?action=procesar_login" id="formulario-login">
             <fieldset>
-            <legend>Login</legend>
-            <label for="usuario" >Usuario: </label>
-            <input id="usuario" type="text" name="usuario" required placeholder="Ingrese usuario...">
 
-            <label for="contrasena">Contraseña: </label>
-            <input id="contrasena" type="password" name="contrasena" required placeholder="Ingrese contraseña...">
+            <legend>Login</legend>
+
+            <label for="usuario" >Usuario: <input id="usuario" type="text" name="usuario" placeholder="Ingrese usuario..."></label>
+
+            <small id="error-usuario"></small>
+
+            <label for="contrasena">Contraseña: <input id="contrasena" type="password" name="contrasena" placeholder="Ingrese contraseña..."></label>
+
+            <small id="error-contrasena"></small>
 
             <button type="submit">Ingresar</button>
+
             </fieldset>
         </form>
 

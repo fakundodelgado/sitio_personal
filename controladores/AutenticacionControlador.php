@@ -13,7 +13,7 @@ class AutenticacionControlador
         $this->administrador = new Usuario($conexion);
     }
 
-    public function mostrarLogin(): void
+    public function mostrarLogin()
     {
         $error = $_SESSION['login_error'] ?? null;
         unset($_SESSION['login_error']);
@@ -21,8 +21,7 @@ class AutenticacionControlador
         require __DIR__ . '/../vistas/autenticacion/login.php';
     }
 
-    public function login(): void
-    {
+    public function login(){
         $usuario = $_POST['usuario'] ?? '';
         $contrasena = $_POST['contrasena'] ?? '';
 
@@ -44,7 +43,7 @@ class AutenticacionControlador
         exit;
     }
 
-    public function logout(): void
+    public function logout()
     {
         $_SESSION = [];
 

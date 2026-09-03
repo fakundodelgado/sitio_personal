@@ -278,7 +278,6 @@ main.academico h2 {
 .botones {
     display: flex;
     flex-direction: row;
-    margin-top: 1rem;
     margin-bottom: 0;
     width: 100%;
 }
@@ -316,8 +315,9 @@ textarea {
     width: 100%;
 }
 
-.contenedor-contacto input {
+.contenedor-contacto input, .contenedor-contacto textarea {
     margin-bottom: 0.75rem;
+    margin-top: 0.75rem;
     border: 1px solid black;
     font-size: 1.3rem;
     text-align: center;
@@ -325,7 +325,7 @@ textarea {
 
 /* INICIO DE SESIÓN */
 
-.formulario-login label {
+#formulario-login label {
     display: flex;
     flex-direction: column;
     margin-bottom: 0.75rem;
@@ -335,20 +335,20 @@ textarea {
     justify-content: center;
 }
 
-.formulario-login {
+#formulario-login {
     height: 100%;
     width: 100%;
     margin-bottom: 1rem;
 }
 
-.formulario-login button {
+#formulario-login button {
     display: block;
     font-size: 1.25rem;
     width: 100%;
 }
 
-.formulario-login input {
-    margin-bottom: 0.75rem;
+#formulario-login input {
+    margin: 0.75rem 0rem 0.75rem 0rem;
     border: 1px solid black;
     font-size: 1.3rem;
     text-align: center;
@@ -569,6 +569,20 @@ fieldset {
     .col-11 { width: 91.66%; }
     .col-12 { width: 100%; }
 
+}
+
+/* ERRORES EN FORMULARIOS */
+
+small {
+    color: red;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    font-size: 1.25rem;
+}
+
+.input-error {
+    border: 2px solid red !important;
 }
 
 
