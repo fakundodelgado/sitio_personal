@@ -9,25 +9,25 @@
             <legend> Envio de mail </legend>
 
             <label for="cont-nombre">
-                Nombre: <input id="cont-nombre" type="text" name="nombre" placeholder="Escriba su nombre...">
+                Nombre: <input id="cont-nombre" type="text" name="nombre" placeholder="Escriba su nombre..." required>
             </label>
 
             <small id="error-nombre"></small>
 
             <label for="cont-mail">
-                Mail: <input id="cont-mail" type="email" name="email" placeholder="Escriba su email...">
+                Mail: <input id="cont-mail" type="email" name="email" placeholder="Escriba su email..." required>
             </label>
 
             <small id="error-mail"></small>
 
             <label for="cont-asunto">
-                Asunto: <input id="cont-asunto" type="text" name="asunto" placeholder="Escriba el asunto...">
+                Asunto: <input id="cont-asunto" type="text" name="asunto" placeholder="Escriba el asunto..." required>
             </label>
 
             <small id="error-asunto"></small>
 
             <label class="area-texto" for="cont-mensaje">
-                Mensaje: <textarea id="cont-mensaje" name="mensaje" placeholder="Escriba su mensaje..."></textarea>
+                Mensaje: <textarea id="cont-mensaje" name="mensaje" placeholder="Escriba su mensaje..." required></textarea>
             </label>
 
             <small id="error-mensaje"></small>
