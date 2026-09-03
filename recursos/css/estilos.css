@@ -578,7 +578,7 @@ fieldset {
 
 /* ERRORES EN FORMULARIOS */
 
-small {
+small, .error {
     color: red;
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -594,7 +594,9 @@ input:disabled {
     background-color: #aaaaaa;
 }
 
-
+.error {
+    margin: 0.75rem 0rem 0.75rem 0rem;
+}
 
 
 

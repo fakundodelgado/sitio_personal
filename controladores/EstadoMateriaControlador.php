@@ -19,8 +19,12 @@ class EstadoMateriaControlador {
             exit;
         }
     }
-        
 
+    public function historial(){
+        $estadoMateria=$this->estadoMateriaModelo->getAll(); 
+        require __DIR__ . "/../vistas/historial.php";
+    }
+        
     // Me lleva al panel de "administración" (solo administradores)
     public function administrar(){
 

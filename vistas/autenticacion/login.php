@@ -4,10 +4,6 @@
     <main>
         <h1>Iniciar sesión</h1>
 
-        <?php if (!empty($error)): ?>
-            <div class="error"><?= htmlspecialchars($error)?></div>
-        <?php endif; ?>
-
         <form method="POST" action="?action=procesar_login" id="formulario-login" novalidate>
 
             <fieldset>
@@ -31,6 +27,10 @@
             </fieldset>
             
         </form>
+
+        <?php if (!empty($error)): ?>
+            <div class="error"><?= htmlspecialchars($error)?></div>
+        <?php endif; ?>
 
         <div id="datos">
             <p><span id="top">Datos de prueba</span></p>

@@ -9,6 +9,10 @@
 
 class ContactoControlador {
 
+    public function contacto(){
+        require __DIR__ . "/../vistas/contacto.php";
+    }
+
     public function enviarMail(){
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

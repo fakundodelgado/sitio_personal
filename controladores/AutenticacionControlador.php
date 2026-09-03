@@ -15,13 +15,16 @@ class AutenticacionControlador
 
     public function mostrarLogin()
     {
+        // Si no vacio el error me lanzara automaticamente el mensaje de error en la vista login aunque aun no haya hecho nada
         $error = $_SESSION['login_error'] ?? null;
         unset($_SESSION['login_error']);
 
         require __DIR__ . '/../vistas/autenticacion/login.php';
+
     }
 
     public function login(){
+
         $usuario = $_POST['usuario'] ?? '';
         $contrasena = $_POST['contrasena'] ?? '';
 
@@ -45,6 +48,7 @@ class AutenticacionControlador
 
     public function logout()
     {
+        // Borra todo de la sesion
         $_SESSION = [];
 
         if (ini_get('session.use_cookies')) {
