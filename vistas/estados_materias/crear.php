@@ -29,6 +29,10 @@
 
         <button type="submit">Guardar</button>
 
+        <?php if (!empty($errorCrea)): ?>
+            <div class="error"><?= htmlspecialchars($errorCrea)?></div>
+        <?php endif; ?>
+
     </fieldset>
 </form>
 

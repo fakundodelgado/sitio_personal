@@ -10,6 +10,11 @@
 class ContactoControlador {
 
     public function contacto(){
+
+        $errorC = $_SESSION["error-contacto"] ?? null;
+        $exitoC = $_SESSION["exito-contacto"] ?? null;
+        unset($_SESSION["error-contacto"], $_SESSION["exito-contacto"]);
+
         require __DIR__ . "/../vistas/contacto.php";
     }
 
@@ -27,11 +32,15 @@ class ContactoControlador {
         $mensaje = $_POST["mensaje"];
 
         if($nombre === "" || $mensaje === "" || $asunto === ""){
-            exit("Debe completar ambos campos obligatoriamente.");
+           $_SESSION["error-contacto"] = "Debe completar ambos campos obligatoriamente.";
+           header("Location: ?action=contacto");
+           exit;
         }
 
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            exit("El email no es valido.");
+            $_SESSION["error-contacto"] = "El email no es valido.";
+            header("Location: ?action=contacto");
+            exit;
         }
 
         $mail->isSMTP();
@@ -57,10 +66,13 @@ class ContactoControlador {
 
         try {
             $mail->send();
-            echo "Mensaje enviado correctamente.";
+            $_SESSION["exito-contacto"] = "Mensaje enviado correctamente.";
         } catch (Exception $e){
-            echo "No se pudo enviar el mensaje.";
+            $_SESSION["error-contacto"] =  "No se pudo enviar el mensaje.";
         }
+
+        header('Location: ?action=contacto');
+        exit;
     }
 
 }

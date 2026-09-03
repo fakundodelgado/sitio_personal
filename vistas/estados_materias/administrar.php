@@ -21,14 +21,19 @@
             <td><?=htmlspecialchars($materia["id_estado"])?></td>
             <td><?=htmlspecialchars($materia["anio"])?></td>
             <td><?=htmlspecialchars($materia["nota"] ?? '-' )?></td> <!-- Si nota es null pongo "-" -->
-            <td class="actions" id="botones-administrar">
-                <a href="index.php?action=editar&codigo_materia=<?=$materia["codigo_materia"]?>"><button type="button">Editar</button></a>
-                <a href="index.php?action=eliminar&codigo_materia=<?=$materia["codigo_materia"]?>" onclick="return confirm('¿Eliminar esta materia?')"><button type="button">Eliminar</button></a> <!-- tiene JS -->
+            <td class="actions botones-administrar">
+                <a href=" ?action=editar&codigo_materia=<?=$materia["codigo_materia"]?>"><button type="button">Editar</button></a>
+                <a id="btn-eliminar" href=" ?action=eliminar&codigo_materia=<?=$materia["codigo_materia"]?>" onclick="return confirm('¿Eliminar esta materia?')"><button type="button">Eliminar</button></a> <!-- tiene JS -->
             </td>
         </tr>
         <?php endwhile; ?>
     </tbody>
 </table>
+
+<?php if (!empty($errorAct)): ?>
+    <div class="error"><?= htmlspecialchars($errorAct)?></div>
+<?php endif; ?>
+
 </main>
 
 <?php include __DIR__ . '/../plantillas/pie_de_pagina.php'; ?>

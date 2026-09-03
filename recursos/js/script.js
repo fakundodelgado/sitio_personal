@@ -28,7 +28,7 @@ if (formAgre || formEdit){
         valNota.placeholder = ""; // Permite modificar el contenido del placeholder     
     }
 
-    valEst.addEventListener('input', ()=>{
+    valEst.addEventListener('change', ()=>{
 
     if(valEst.value.trim()==="4"){
 
@@ -326,6 +326,4 @@ if(formEdit){
 }
 
 /* Los dos ultimos 2 if son practicamente identicos, deberia de modificar eso despues con un simple if en el de arriba es decir el de agregar y haciendo if formAgre || formEdit */
-
-
 

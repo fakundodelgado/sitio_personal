@@ -13,7 +13,7 @@ class EstadoMateriaControlador {
     }
 
     
-     private function requireLogin(){
+    private function requireLogin(){
         if (!isset($_SESSION['usuario_id'])) {
             header('Location: ?action=login');
             exit;
@@ -21,7 +21,16 @@ class EstadoMateriaControlador {
     }
 
     public function historial(){
-        $estadoMateria=$this->estadoMateriaModelo->getAll(); 
+
+        $errorHis = "";
+
+        $estadoMateria=$this->estadoMateriaModelo->getAll();
+
+        if ($estadoMateria === false) {
+            $errorHis = "Ocurrió un error al cargar la lista de materias.";
+            $estadoMateria = [];
+        }
+         
         require __DIR__ . "/../vistas/historial.php";
     }
         
@@ -30,13 +39,25 @@ class EstadoMateriaControlador {
 
         $this->requireLogin();
 
-        $estadoMateria=$this->estadoMateriaModelo->getAll(); 
+        $errorAct = $_SESSION["error-act"] ?? "";
+        unset($_SESSION["error-act"]);
+
+        $estadoMateria=$this->estadoMateriaModelo->getAll();
+        
+        if ($estadoMateria === false) {
+            $errorAct = "Ocurrió un error al cargar la lista de materias.";
+            $estadoMateria = [];
+        }
+
         require __DIR__ . "/../vistas/estados_materias/administrar.php";
     }
 
     public function crear(){
 
-       $this->requireLogin();
+        $this->requireLogin();
+
+        $errorCrea = $_SESSION['error-crea'] ?? null;
+        unset($_SESSION['error-crea']);
 
         require __DIR__ . "/../vistas/estados_materias/crear.php";
     }
@@ -56,19 +77,32 @@ class EstadoMateriaControlador {
         }
 
         if($codigoMateria===""||$idEstado<0||$idEstado>4||$anio===0){ 
-            die("El codigo de la materia, el id del estado y el año de la cursada son obligatorios.");
+            $_SESSION['error-crea'] = "El codigo de la materia, el id del estado y el año de la cursada son obligatorios.";
+            header("Location: ?action=crear");
+            exit; 
         }
 
         if($nota != null && $idEstado!=4){
-            die("No se puede cargar una nota a una materia no aprobada");
+            $_SESSION['error-crea'] = "No se puede cargar una nota a una materia no aprobada";
+            header("Location: ?action=crear");
+            exit; 
         }
 
         if ($idEstado === 4 && $nota === null) {
-            die("Una materia aprobada requiere obligatoriamente una nota.");
+            $_SESSION['error-crea'] = "Una materia aprobada requiere obligatoriamente una nota.";
+            header("Location: ?action=crear");
+            exit; 
         }
 
-        $this->estadoMateriaModelo->create($codigoMateria, $idEstado, $anio, $nota);
-        header("Location: index.php?action=administrar"); 
+        $resultado = $this->estadoMateriaModelo->create($codigoMateria, $idEstado, $anio, $nota);
+
+        if(!$resultado){
+            $_SESSION['error-crea'] = "Ocurrio un error al guardar la materia.";
+            header("Location: ?action=crear");
+            exit; 
+        }
+        
+        header("Location: ?action=administrar");         
         exit;
     }
 
@@ -76,14 +110,27 @@ class EstadoMateriaControlador {
 
         $this->requireLogin();
 
-        $codigoMateria=trim($_GET["codigo_materia"]??""); if($codigoMateria === "") die("Codigo de Materia inválido.");
+        $codigoMateria=trim($_GET["codigo_materia"]??""); 
+        
+        if($codigoMateria === ""){
+            $_SESSION["error-act"] = "Codigo de Materia inválido.";
+            header("Location: ?action=administrar");
+            exit;
+        }
+
         $estadoMateria = $this->estadoMateriaModelo->getByCodigoMateria($codigoMateria); 
 
         if(!$estadoMateria){
-            die("Materia no encontrada.");
-        } 
+            $_SESSION["error-act"] = "Materia no encontrada.";
+            header("Location: ?action=administrar");         
+            exit;
+        }
+        
+        $errorAct = $_SESSION["error-act"] ?? "";
+        unset($_SESSION["error-act"]);
 
         require __DIR__."/../vistas/estados_materias/editar.php";
+
     }
 
     public function actualizar(){
@@ -100,32 +147,57 @@ class EstadoMateriaControlador {
         }
 
         if($codigoMateria===""||$idEstado<0||$idEstado>4||$anio===0){
-            die("El codigo de la materia, el id del estado y el año de la cursada son obligatorios.");
+            $_SESSION["error-act"] = "El codigo de la materia, el id del estado y el año de la cursada son obligatorios.";
+            header("Location: ?action=editar&codigo_materia={$codigoMateria}");
+            exit;
         }
 
         if($nota != null && $idEstado!=4){
-            die("No se puede cargar una nota a una materia no aprobada");
+            $_SESSION["error-act"] = "No se puede cargar una nota a una materia no aprobada";
+            header("Location: ?action=editar&codigo_materia={$codigoMateria}");
+            exit;
         }
 
         if ($idEstado === 4 && $nota === null) {
-            die("Una materia aprobada requiere obligatoriamente una nota.");
+            $_SESSION["error-act"] = "Una materia aprobada requiere obligatoriamente una nota.";
+            header("Location: ?action=editar&codigo_materia={$codigoMateria}");
+            exit;
         }
 
-        $this->estadoMateriaModelo->update($codigoMateria, $idEstado, $anio, $nota);
-        header("Location: index.php?action=administrar"); 
+        $resultado = $this->estadoMateriaModelo->update($codigoMateria, $idEstado, $anio, $nota);
+
+        if(!$resultado){
+            $_SESSION['error-act'] = "Ocurrio un error al actualizar la materia.";
+            header("Location: ?action=editar&codigo_materia={$codigoMateria}");
+            exit; 
+        }
+
+        header("Location: ?action=administrar"); 
         exit;
     }
 
     public function eliminar(){
 
-       $this->requireLogin();
+        $this->requireLogin();
 
         $codigoMateria=trim($_GET["codigo_materia"]??"");
 
-        if($codigoMateria !== ""){
-            $this->estadoMateriaModelo->delete($codigoMateria);
-        } 
+        // Como tanto este como el error de actualización van a para a la misma vista puedo usar la misma variable
+        if($codigoMateria === ""){
+            $_SESSION['error-act'] = "Es obligatorio pasar un codigo de materia a eliminar.";
+            header("Location: ?action=administrar");
+            exit; 
+        }
+        
+        $resultado = $this->estadoMateriaModelo->delete($codigoMateria);
 
-        header("Location: index.php?action=administrar"); exit;
+        if(!$resultado){
+            $_SESSION['error-act'] = "Ocurrio un error al eliminar la materia.";
+            header("Location: ?action=administrar");
+            exit; 
+        }
+        
+        header("Location: ?action=administrar"); 
+        exit;
     }
 }

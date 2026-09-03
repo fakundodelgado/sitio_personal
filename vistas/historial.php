@@ -6,12 +6,12 @@
     <h1>Estado Académico</h1>
 
     <p>
-        A continuación se muestra el progreso de mi carrera, es decir
+        A continuación se muestra el estado mis materias, es decir
         dentro de mi plan de estudio cuales materias regularice, aprobe,
         quede libre, estoy cursando o me queda por cursar.
     </p>
 
-    <h2>Progreso del 3er año: </h2>
+    <h2>Progreso academico: </h2>
     
     <table>
         <thead>
@@ -45,6 +45,11 @@
             <?php endif; ?>
         </tbody>
     </table>
+
+    <?php if (!empty($errorHis)): ?>
+        <div class="error"><?= htmlspecialchars($errorHis)?></div>
+    <?php endif; ?>
+
 </main>
 
 <?php include __DIR__ . '/plantillas/pie_de_pagina.php'; ?>

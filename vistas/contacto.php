@@ -40,6 +40,15 @@
 
         </fieldset>
 
+        <?php if (!empty($exitoC)): ?>
+            <div class="exito"><?= htmlspecialchars($exitoC)?></div>
+        <?php endif ?>
+
+        <?php if (!empty($errorC)): ?>
+            <div class="error"><?= htmlspecialchars($errorC)?></div>
+        <?php endif ?>
+
+
     </form>
 
 </main>

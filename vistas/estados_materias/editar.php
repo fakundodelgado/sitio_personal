@@ -31,6 +31,9 @@
 
 </form>
 
+<?php if (!empty($errorAct)): ?>
+    <div class="error"><?= htmlspecialchars($errorAct)?></div>
+<?php endif; ?>
 
 </main>
 
