@@ -1,3 +1,5 @@
 * seguimiento_academico.sql está exportado directamente desde phpMyAdmin. Es necesaria la creación de la base de datos.
 * seguimiento_academico - Modificado.sql está modificado para crearla y usarla.
 
+Ambos scripts generan una base de datos con el mismo contenido exacto. Utilice solo uno de ellos para la importación.
+
