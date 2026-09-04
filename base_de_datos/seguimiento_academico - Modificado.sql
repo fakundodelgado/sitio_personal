@@ -24,6 +24,13 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Creación de la base de datos
+--
+
+CREATE DATABASE IF NOT EXISTS `seguimiento_academico` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `seguimiento_academico`;
+
+--
 -- Estructura de tabla para la tabla `administradores`
 --
 

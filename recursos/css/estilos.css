@@ -190,7 +190,7 @@ footer div {
     text-align: center;
 }
 
-.relacionado p, .contactos p {
+.relacionado p, .contactos p, .legal p:first-child{
     font-weight: bold;
     font-size: 1.2em;
     margin-bottom: 0.25rem;
@@ -274,6 +274,10 @@ main.academico h2 {
     justify-content: center;
 }
 */
+
+#cont-form {
+    margin-top: 1rem;
+}
 
 .botones {
     display: flex;
@@ -368,6 +372,7 @@ textarea {
 
 #agregar-materia button {
     margin-bottom: 1rem;
+    margin-top: 1rem;
     font-size: 1rem;
 }
 
@@ -617,6 +622,8 @@ select {
     display: block;
     background-color: rgb(245, 245, 238)
 }
+
+
 
 
 

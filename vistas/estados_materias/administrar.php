@@ -3,6 +3,11 @@
 <body>
 <main>
 <h1>Historial de Materias</h1>
+<p> 
+    En esta sección usted podrá agregar, editar y eliminar los estados de las materias que se muestran en el apartado "Formación". 
+    Tener en cuenta que los códigos de materia están sacados del plan de estudio de la carrera de TUP y son solo los de las materias 
+    principales, es decir, no están cargadas las optativas.  
+</p>
 <p id="agregar-materia"><a href="index.php?action=crear"><button type="button">Agregar Materia</button></a></p>
 <table>
     <thead>

@@ -1,4 +1,5 @@
-# sitio_personal
-Sitio web personal para la materia programación de aplicaciones web.
+# Sitio Web Personal - Seguimiento Académico
+
+Este proyecto fue desarrollado para la materia de programación de aplicaciones web.
 
 

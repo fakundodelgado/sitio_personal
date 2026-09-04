@@ -3,6 +3,12 @@
 
 <main class="main-contacto">
     <h1> Formulario de contacto </h1>
+
+    <p>
+        Este formulario le permite comunicarse conmigo por medio de un mensaje. Todos los campos son obligatorios. 
+        La respuesta será enviada a la dirección proporcionada a la brevedad.
+    </p>
+
     <form action="index.php?action=enviar_mensaje" method="POST" id="cont-form" novalidate>
         <fieldset class="contenedor-contacto">
 

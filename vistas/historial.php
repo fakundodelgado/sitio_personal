@@ -6,12 +6,12 @@
     <h1>Estado Académico</h1>
 
     <p>
-        A continuación se muestra el estado mis materias, es decir
-        dentro de mi plan de estudio cuales materias regularice, aprobe,
-        quede libre, estoy cursando o me queda por cursar.
+        A continuación se muestra el estado de mis materias, es decir, 
+        dentro de mi plan de estudio, cuáles materias regularicé, aprobé, 
+        quedé libre, estoy cursando o me queda por cursar.
     </p>
 
-    <h2>Progreso academico: </h2>
+    <h2>Progreso académico: </h2>
     
     <table>
         <thead>

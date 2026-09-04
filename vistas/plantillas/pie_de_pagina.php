@@ -22,9 +22,10 @@
                         </ul>
                     </div>
                     <div class="legal col-4 col-s-12">
+                            <p>Aviso legal: </p>
                             <p>
                             Este sitio web fue desarrollado con fines exclusivamente académicos para la carrera Tecnicatura Universitaria en Programación (UNSa). 
-                            Las marcas, logotipos e imágenes pertenecen a sus respectivos autores y se utilizan con fines ilustrativos (habia que agregar algo de contenido).
+                            Las marcas, logotipos e imágenes pertenecen a sus respectivos autores y se utilizan con fines ilustrativos (había que agregar algo de contenido).
                             </p>
                     </div>
                 </div>
