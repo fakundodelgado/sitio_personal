@@ -15,7 +15,20 @@
 
         <small id="error-codigo"></small>
         
-        <label for="id-estado">ID del estado: <input id="id-estado" type="number" name="id_estado" required placeholder="Ingresar id..."></label>
+        <label for="id-estado">Estado: 
+
+            <!-- Aqui no hay datos iniciales como en el edit -->
+            <select name="id_estado" id="id-estado" required>
+
+                <option value="0" selected>Sin Cursar</option>
+                <option value="1">Cursando</option>
+                <option value="2">Libre</option>
+                <option value="3">Regular</option> 
+                <option value="4">Aprobada</option>
+
+            </select>
+            
+        </label>
 
         <small id="error-estado"></small>
 

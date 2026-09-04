@@ -13,7 +13,19 @@
 
         <input type="hidden" name="codigo_materia" value="<?=htmlspecialchars($estadoMateria["codigo_materia"])?>">
 
-        <label for="id-estado">ID del estado: <input id="id-estado" type="number" name="id_estado" value="<?=htmlspecialchars($estadoMateria["id_estado"])?>" required placeholder="Ingresar id..."></label>
+        <label for="id-estado">Estado:
+
+            <select name="id-estado" id="id-estado" required>
+
+                <option value="0" <?=$estadoMateria["id_estado"] == 0 ? 'selected' : ''?>>Sin Cursar</option>
+                <option value="1" <?=$estadoMateria["id_estado"] == 1 ? 'selected' : ''?>>Cursando</option>
+                <option value="2" <?=$estadoMateria["id_estado"] == 2 ? 'selected' : ''?>>Libre</option>
+                <option value="3" <?=$estadoMateria["id_estado"] == 3 ? 'selected' : ''?>>Regular</option>
+                <option value="4" <?=$estadoMateria["id_estado"] == 4 ? 'selected' : ''?>>Aprobada</option>
+
+            </select>
+
+        </label>
 
         <small id="error-estado"></small>
 
@@ -21,7 +33,7 @@
 
         <small id="error-cursada"></small>
 
-        <label for="nota-materia">Nota: <input id="nota-materia" type="number" name="nota" value="<?=htmlspecialchars($estadoMateria["nota"] ?? '-') ?>" placeholder="Ingresar nota..."></label>
+        <label for="nota-materia">Nota: <input id="nota-materia" type="number" name="nota" value="<?=htmlspecialchars($estadoMateria["nota"] ?? null) ?>" placeholder="Ingresar nota..."></label>
 
         <small id="error-nota"></small>
 

@@ -138,7 +138,7 @@ class EstadoMateriaControlador {
         $this->requireLogin();
 
         $codigoMateria=trim($_POST["codigo_materia"]??""); 
-        $idEstado=(int)($_POST["id_estado"]??-1);
+        $idEstado=(int)($_POST["id-estado"]??-1);
         $anio=(int)($_POST["anio"]??0); 
         $nota=(int)($_POST["nota"]??null);
 

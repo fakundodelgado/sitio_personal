@@ -8,7 +8,7 @@
     <thead>
         <tr>
             <th>Código de Materia</th>
-            <th>ID del estado</th>
+            <th>Estado</th>
             <th>Año de la cursada</th>
             <th>Nota</th>
             <th>Acciones</th>
@@ -18,7 +18,7 @@
         <?php while($materia=$estadoMateria->fetch_assoc()): ?>
         <tr>
             <td><?=htmlspecialchars($materia["codigo_materia"])?></td>
-            <td><?=htmlspecialchars($materia["id_estado"])?></td>
+            <td><?=htmlspecialchars($materia["nombre_estado"])?></td>
             <td><?=htmlspecialchars($materia["anio"])?></td>
             <td><?=htmlspecialchars($materia["nota"] ?? '-' )?></td> <!-- Si nota es null pongo "-" -->
             <td class="actions botones-administrar">
